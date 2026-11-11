@@ -1,0 +1,178 @@
+/* ExploringCG notes: Markdown preview style for VS Code.
+   Academic layout (serif, justified, centred title block, booktabs tables)
+   with the seminar-slide palette (navy, green, orange, light grey). */
+
+body {
+  --navy: #1d2a44;
+  --navy-soft: #3d5a80;
+  --green: #4d7a2a;
+  --orange: #b5562a;
+  --text: #1f2328;
+  --muted: #5b6573;
+  --bg: #fdfdfb;
+  --panel: #f2f4f7;
+  --rule-light: #d5dae2;
+  --code-bg: #eef1f5;
+
+  font-family: Charter, "Bitstream Charter", "Iowan Old Style", Palatino, "Palatino Linotype",
+               "Book Antiqua", Georgia, "Times New Roman", serif;
+  font-size: 16px;
+  line-height: 1.6;
+  color: var(--text);
+  background: var(--bg);
+  max-width: 740px;
+  margin: 0 auto;
+  padding: 48px 40px 96px;
+  hyphens: auto;
+  -webkit-hyphens: auto;
+}
+
+/* Dark theme (VS Code adds this class when a dark colour theme is active) */
+body.vscode-dark,
+body.vscode-high-contrast {
+  --navy: #c9d6ee;
+  --navy-soft: #9db4d8;
+  --green: #9cc77a;
+  --orange: #e39a72;
+  --text: #e2e4e8;
+  --muted: #98a2b3;
+  --bg: #161b26;
+  --panel: #1f2635;
+  --rule-light: #36405a;
+  --code-bg: #232b3b;
+}
+
+p { text-align: justify; margin: 0.6em 0; }
+
+/* Title block: everything before the first horizontal rule is centred */
+h1 {
+  font-size: 1.8em;
+  font-weight: 700;
+  line-height: 1.25;
+  color: var(--navy);
+  text-align: center;
+  margin: 0 0 1em;
+  padding-bottom: 0.5em;
+  border-bottom: 3px solid var(--navy);
+}
+h1 ~ p { text-align: center; margin: 0.15em 0; color: var(--muted); }
+h1 ~ p:first-of-type { margin-top: 0.8em; font-size: 1.1em; color: var(--text); }
+hr ~ p { text-align: justify; margin: 0.6em 0; color: var(--text); }
+hr ~ p:first-of-type { margin-top: 0.6em; font-size: 1em; }
+
+/* Section headings: article hierarchy, slide colours */
+h2, h3, h4 {
+  font-family: inherit;
+  color: var(--navy);
+  font-weight: 700;
+  line-height: 1.3;
+  border: none;
+}
+h2 {
+  font-size: 1.35em;
+  margin: 2.2em 0 0.7em;
+  padding-bottom: 0.25em;
+  border-bottom: 1px solid var(--rule-light);
+}
+h3 { font-size: 1.12em; margin: 1.7em 0 0.5em; }
+h4 {
+  font-size: 1em;
+  font-style: italic;
+  margin: 1.6em 0 0.6em;
+  padding: 0.3em 0.7em;
+  background: var(--panel);
+  border-left: 3px solid var(--green);
+  border-radius: 0 4px 4px 0;
+}
+
+strong { font-weight: 700; color: var(--navy); }
+em { font-style: italic; }
+
+/* Links */
+a { color: var(--navy-soft); text-decoration: none; border-bottom: 1px dotted currentColor; }
+a:hover { color: var(--orange); }
+
+/* Citation links like [[1](#ref-renderhell)] */
+a[href^="#ref-"] { color: var(--green); font-weight: 700; border-bottom: none; }
+
+/* Cross-references like (see more: [Book I](#411-...)) */
+a[href^="#3"], a[href^="#4"] { color: var(--orange); border-bottom: none; }
+
+/* Lists */
+ul, ol { padding-left: 1.6em; margin: 0.5em 0; }
+li { margin: 0.2em 0; text-align: justify; }
+li > ul, li > ol { margin: 0.15em 0; }
+li::marker { color: var(--green); }
+ol > li::marker { color: var(--navy-soft); font-weight: 700; }
+
+/* Quotations and notes: indented panel */
+blockquote {
+  margin: 1em 1.5em;
+  padding: 0.5em 1em;
+  color: var(--text);
+  font-size: 0.94em;
+  background: var(--panel);
+  border-left: 3px solid var(--navy);
+  border-radius: 0 4px 4px 0;
+}
+blockquote p { text-align: justify; margin: 0.3em 0; }
+
+/* Tables: booktabs rules in navy, no vertical lines */
+table {
+  border-collapse: collapse;
+  margin: 1.2em auto;
+  font-size: 0.9em;
+  border-top: 2px solid var(--navy);
+  border-bottom: 2px solid var(--navy);
+}
+thead th { border-bottom: 1px solid var(--navy); color: var(--navy); }
+th, td {
+  padding: 0.4em 0.9em;
+  border-left: none;
+  border-right: none;
+  text-align: left;
+  background: none;
+}
+th { font-weight: 700; }
+tbody tr:nth-child(even) td { background: var(--panel); }
+
+/* Code */
+code {
+  font-family: "JetBrains Mono", "SF Mono", Menlo, Consolas, monospace;
+  font-size: 0.85em;
+  background: var(--code-bg);
+  color: var(--orange);
+  padding: 0.08em 0.35em;
+  border-radius: 3px;
+}
+pre {
+  background: var(--code-bg);
+  border-left: 3px solid var(--rule-light);
+  border-radius: 0 4px 4px 0;
+  padding: 0.8em 1em;
+  font-size: 0.9em;
+  overflow-x: auto;
+}
+pre code { color: var(--text); background: none; padding: 0; }
+
+/* Section separators: short centred rule */
+hr {
+  border: none;
+  height: 0;
+  border-top: 1px solid var(--rule-light);
+  width: 30%;
+  margin: 2.2em auto;
+}
+
+/* Figures: image paragraph followed by an italic caption paragraph */
+p:has(> img:only-child) { text-align: center; margin: 1.4em 0 0.3em; }
+p:has(> img:only-child) + p {
+  text-align: center;
+  font-size: 0.88em;
+  color: var(--muted);
+  margin: 0 2em 1.6em;
+}
+p:has(> img:only-child) + p > em:first-child { font-style: normal; font-weight: 700; color: var(--navy); }
+
+/* Figures */
+img { display: block; max-width: 100%; margin: 1.2em auto; border-radius: 4px; }
