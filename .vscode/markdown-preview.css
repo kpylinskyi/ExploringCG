@@ -61,7 +61,7 @@ hr ~ p { text-align: justify; margin: 0.6em 0; color: var(--text); }
 hr ~ p:first-of-type { margin-top: 0.6em; font-size: 1em; }
 
 /* Section headings: article hierarchy, slide colours */
-h2, h3, h4 {
+h2, h3, h4, h5 {
   font-family: inherit;
   color: var(--navy);
   font-weight: 700;
@@ -83,6 +83,13 @@ h4 {
   background: var(--panel);
   border-left: 3px solid var(--green);
   border-radius: 0 4px 4px 0;
+}
+
+h5 {
+  font-size: 0.98em;
+  margin: 1.5em 0 0.5em;
+  padding-bottom: 0.15em;
+  border-bottom: 1px dotted var(--rule-light);
 }
 
 strong { font-weight: 700; color: var(--navy); }
